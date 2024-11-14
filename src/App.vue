@@ -17,7 +17,7 @@ const toggleTheme = () => {console.log('toggle theme')}
 
 <template>
     <header>
-        <h1>PADARIA<br/>SHEKINAH</h1>
+        <RouterLink to="/"><h1>PADARIA<br/>SHEKINAH</h1></RouterLink>
         <div class="icons">
             <IconAccessibility @click="toggleTheme"/>
             <IconMenu @click="isMenuOpen = true"/>
