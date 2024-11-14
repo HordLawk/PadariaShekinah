@@ -3,6 +3,12 @@ import { RouterLink, RouterView } from 'vue-router'
 import IconAccessibility from './components/icons/IconAccessibility.vue';
 import IconMenu from './components/icons/IconMenu.vue';
 import { ref } from 'vue';
+import IconHome from './components/icons/IconHome.vue';
+import IconRestaurant from './components/icons/IconRestaurant.vue';
+import IconContact from './components/icons/IconContact.vue';
+import IconAbout from './components/icons/IconAbout.vue';
+import IconLocation from './components/icons/IconLocation.vue';
+import IconCart from './components/icons/IconCart.vue';
 
 const isMenuOpen = ref(false);
 
@@ -19,12 +25,12 @@ const toggleTheme = () => {console.log('toggle theme')}
         <div class="navBg" :class="{open: isMenuOpen}" @click="isMenuOpen = false"></div>
         <nav :class="{open: isMenuOpen}">
             <ul>
-                <li><RouterLink to="/">Home</RouterLink></li>
-                <li><RouterLink to="/cardapio">Cardápio</RouterLink></li>
-                <li><RouterLink to="/contato">Contato</RouterLink></li>
-                <li><RouterLink to="/sobre">Sobre nós</RouterLink></li>
-                <li><RouterLink to="/local">Localização</RouterLink></li>
-                <li><RouterLink to="/carrinho">Carrinho</RouterLink></li>
+                <li><RouterLink to="/"><IconHome/>Home</RouterLink></li>
+                <li><RouterLink to="/cardapio"><IconRestaurant/>Cardápio</RouterLink></li>
+                <li><RouterLink to="/contato"><IconContact/>Contato</RouterLink></li>
+                <li><RouterLink to="/sobre"><IconAbout/>Sobre nós</RouterLink></li>
+                <li><RouterLink to="/local"><IconLocation/>Localização</RouterLink></li>
+                <li><RouterLink to="/carrinho"><IconCart/>Carrinho</RouterLink></li>
             </ul>
         </nav>
     </header>
@@ -45,8 +51,8 @@ const toggleTheme = () => {console.log('toggle theme')}
         <div>
             <div class="footerTitle">MÍDIAS SOCIAIS</div>
             <div class="socialIcons">
-                <img src="@/assets/whatsapp.png">
-                <img src="@/assets/instagram.png">
+                <a href="#" target="_blank"><img src="@/assets/whatsapp.png"/></a>
+                <a href="#" target="_blank"><img src="@/assets/instagram.png"/></a>
             </div>
         </div>
     </footer>
@@ -133,6 +139,15 @@ header {
         ul {
             list-style-type: none;
             padding-inline-start: 0;
+            li a {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+            }
+            li a.router-link-exact-active {
+                font-weight: bold;
+                padding-inline-start: 1rem;
+            }
         }
     }
     nav.open {
