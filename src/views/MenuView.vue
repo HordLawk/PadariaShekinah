@@ -53,12 +53,12 @@ const filterSearch = () => {
             <IconClose v-if="isSearchOpen" class="buttonClose" @click="isSearchOpen = false"/>
         </div>
         <section>
-            <RouterLink v-for="{image, name, price} in showedProducts" to="/produto">
+            <RouterLink v-for="product in showedProducts" :to="{name: 'produto', query: product}">
                 <div class="productCard">
-                    <img :src="image"/>
+                    <img :src="product.image"/>
                     <div>
-                        <h2>{{name}}</h2>
-                        <p>R$ {{price.toFixed(2)}}</p>
+                        <h2>{{product.name}}</h2>
+                        <p>R$ {{product.price.toFixed(2)}}</p>
                     </div>
                 </div>
             </RouterLink>

@@ -4,12 +4,23 @@ import Carousel from 'primevue/carousel';
 const products = [
     {
         image: 'https://placehold.co/600x400/fdd/000',
+        name: 'Bolo',
+        price: 100,
     },
     {
         image: 'https://placehold.co/600x400/dfd/000',
+        name: 'Casadinho',
+        price: 50,
     },
     {
         image: 'https://placehold.co/600x400/ddf/000',
+        name: 'Hamburguer',
+        price: 25,
+    },
+    {
+        image: 'https://placehold.co/600x400/ffd/000',
+        name: 'Palha italiana',
+        price: 5,
     },
 ];
 </script>
@@ -17,7 +28,9 @@ const products = [
 <template>
     <Carousel :value="products" :numVisible="1">
         <template #item="slotProps">
-            <img :src="slotProps.data.image"/>
+            <RouterLink :to="{name: 'produto', query: slotProps.data}">
+                <img :src="slotProps.data.image"/>
+            </RouterLink>
         </template>
     </Carousel>
     <section>
