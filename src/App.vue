@@ -65,7 +65,7 @@ footer {
     justify-content: space-between;
     padding: 1rem 2rem;
     gap: .4rem;
-    div {
+    > div {
         color: var(--color-secundary);
         .footerTitle {
             margin-bottom: .5rem;
@@ -92,9 +92,9 @@ header {
     justify-content: space-between;
     padding: 2rem;
     overflow: hidden;
-    div.icons {
+    .icons {
         display: flex;
-        gap: 0.5rem;
+        gap: .5rem;
     }
     svg {
         fill:  var(--color-secundary);
@@ -107,7 +107,7 @@ header {
         font-style: italic;
         line-height: 1.2;
     }
-    div.navBg {
+    .navBg {
         background-color: rgba(0, 0, 0, 0);
         position: fixed;
         width: 100vw;
@@ -117,15 +117,15 @@ header {
         z-index: -100;
         transition: .3s;
     }
-    div.navBg.open {
-        background-color: rgba(0, 0, 0, 0.5);
+    .navBg.open {
+        background-color: rgba(0, 0, 0, .5);
         z-index: 100;
         nav {
             z-index: 101;
             transform: translate(-100vw);
         }
     }
-    nav {
+    > nav {
         transition: .3s;
         position: fixed;
         width: 80vw;
@@ -136,15 +136,15 @@ header {
         padding: 2rem;
         font-size: 2rem;
         z-index: 101;
-        ul {
+        > ul {
             list-style-type: none;
             padding-inline-start: 0;
-            li a {
+            > li > a {
                 display: flex;
                 align-items: center;
                 gap: 1rem;
             }
-            li a.router-link-exact-active {
+            > li .router-link-exact-active {
                 font-weight: bold;
                 padding-inline-start: 1rem;
             }
@@ -152,33 +152,6 @@ header {
     }
     nav.open {
         transform: translate(-80vw);
-    }
-}
-
-@media (min-width: 1024px) {
-    header {
-        display: flex;
-        place-items: center;
-        padding-right: calc(var(--section-gap) / 2);
-    }
-
-    .logo {
-        margin: 0 2rem 0 0;
-    }
-
-    header .wrapper {
-        display: flex;
-        place-items: flex-start;
-        flex-wrap: wrap;
-    }
-
-    nav {
-        text-align: left;
-        margin-left: -1rem;
-        font-size: 1rem;
-
-        padding: 1rem 0;
-        margin-top: 1rem;
     }
 }
 </style>

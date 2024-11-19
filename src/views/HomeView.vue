@@ -27,7 +27,11 @@ const products = [
     <svg width="427" height="2" viewBox="0 0 427 2"><path d="M0 1H430" stroke-dasharray="20 20"/></svg>
     <section>
         <h2>SOBRE NÓS</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea commodo consequat.
+        </p>
     </section>
 </template>
 
@@ -38,17 +42,17 @@ section {
     flex-direction: column;
     align-items: center;
     gap: .5rem;
-    p {
+    > p {
         font-size: 1.3rem;
         text-align: justify;
     }
-    a .button {
+    .button {
         background-color: #EA1D2C;
         border-radius: .5rem;
         font-weight: 500;
         color: var(--vt-c-text-dark-1);
         font-size: 1.3rem;
-        padding: 0.2rem 1rem;
+        padding: .2rem 1rem;
         line-height: 2rem;
     }
 }
