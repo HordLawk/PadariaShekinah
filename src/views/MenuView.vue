@@ -1,5 +1,7 @@
 <script setup lang="ts">
+import IconClose from '@/components/icons/IconClose.vue';
 import IconSearch from '@/components/icons/IconSearch.vue';
+import { ref } from 'vue';
 
 const products = [
     {
@@ -23,21 +25,43 @@ const products = [
         price: 5,
     },
 ];
+const isSearchOpen = ref(false);
+const showedProducts = ref(products);
+const searchQuery = ref('');
+
+const filterSearch = () => {
+    showedProducts.value = (
+        searchQuery.value
+        ? showedProducts.value.filter(p => p.name.toLocaleLowerCase().startsWith(searchQuery.value.toLocaleLowerCase()))
+        : products
+    );
+}
 </script>
 
 <template>
     <div class="content">
         <div class="head">
             <h1>Cardápio</h1>
-            <IconSearch/>
-            <input type="text"/>
+            <IconSearch v-if="!isSearchOpen" @click="isSearchOpen = true"/>
+            <input
+                type="text"
+                :class="{open: isSearchOpen}"
+                v-model="searchQuery"
+                @input="filterSearch"
+                placeholder="Nome do produto"
+            />
+            <IconClose v-if="isSearchOpen" class="buttonClose" @click="isSearchOpen = false"/>
         </div>
         <section>
-            <div v-for="{image, name, price} in products">
-                <img :src="image"/>
-                <h2>{{name}}</h2>
-                <span>R$ {{price.toFixed(2)}}</span>
-            </div>
+            <RouterLink v-for="{image, name, price} in showedProducts" to="/produto">
+                <div class="productCard">
+                    <img :src="image"/>
+                    <div>
+                        <h2>{{name}}</h2>
+                        <p>R$ {{price.toFixed(2)}}</p>
+                    </div>
+                </div>
+            </RouterLink>
         </section>
     </div>
 </template>
@@ -51,38 +75,61 @@ const products = [
         margin-bottom: 1rem;
         display: flex;
         align-items: center;
-        * {
+        > * {
             position: absolute;
             top: 0;
             height: 100%;
             text-align: center;
             line-height: 2.5rem;
         }
-        svg, input {
+        svg, > input {
             right: 0;
         }
-        input {
+        > input {
             width: 0%;
             padding: 0rem;
-            border: none;
+            border-width: 0;
+            border-radius: .5rem;
+            transition: .3s;
+            text-align: left;
+        }
+        > input::placeholder {
+            color: var(--vt-c-divider-dark-1)
+        }
+        > input.open {
+            width: 100%;
+            padding: .1rem .5rem;
         }
         svg {
             width: 2.5rem;
         }
+        .buttonClose {
+            fill: var(--color-primary)
+        }
     }
-    section {
+    > section {
         display: flex;
         flex-wrap: wrap;
         gap: 1rem;
     }
-    section div {
+    > section .productCard {
         max-width: calc(50vw - 2.5rem);
         background-color: var(--color-background-mute);
         border-radius: .5rem;
-        img {
+        display: flex;
+        flex-direction: column;
+        > img {
             border-top-left-radius: .5rem;
             border-top-right-radius: .5rem;
             max-width: 100%;
+        }
+        > div{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex-grow: 1;
+            margin: .5rem .8rem .5rem .8rem;
+            color: var(--color-text)
         }
     }
 }
