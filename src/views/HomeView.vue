@@ -28,7 +28,7 @@ const products = [
 <template>
     <Carousel :value="products" :numVisible="1">
         <template #item="slotProps">
-            <RouterLink :to="{name: 'produto', query: slotProps.data}">
+            <RouterLink :to="{name: 'produto', params: {id: slotProps.index}}">
                 <img :src="slotProps.data.image"/>
             </RouterLink>
         </template>

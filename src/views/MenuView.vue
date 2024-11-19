@@ -39,7 +39,7 @@ const filterSearch = () => {
 </script>
 
 <template>
-    <div class="content">
+    <div class="container">
         <div class="head">
             <h1>Cardápio</h1>
             <IconSearch v-if="!isSearchOpen" @click="isSearchOpen = true"/>
@@ -53,7 +53,7 @@ const filterSearch = () => {
             <IconClose v-if="isSearchOpen" class="buttonClose" @click="isSearchOpen = false"/>
         </div>
         <section>
-            <RouterLink v-for="product in showedProducts" :to="{name: 'produto', query: product}">
+            <RouterLink v-for="(product, id) in showedProducts" :to="{name: 'produto', params: {id}}">
                 <div class="productCard">
                     <img :src="product.image"/>
                     <div>
@@ -67,7 +67,7 @@ const filterSearch = () => {
 </template>
 
 <style scoped>
-.content {
+.container {
     margin: 1rem 2rem;
     .head {
         position: relative;
