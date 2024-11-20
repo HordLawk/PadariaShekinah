@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import IconClose from '@/components/icons/IconClose.vue';
 import IconSearch from '@/components/icons/IconSearch.vue';
-import { ref } from 'vue';
+import { ref, useTemplateRef } from 'vue';
 
 const products = [
     {
@@ -28,6 +28,7 @@ const products = [
 const isSearchOpen = ref(false);
 const showedProducts = ref(products);
 const searchQuery = ref('');
+const searchInput = useTemplateRef('searchInput');
 
 const filterSearch = () => {
     showedProducts.value = (
@@ -36,21 +37,26 @@ const filterSearch = () => {
         : products
     );
 }
+const toggleSearch = (open: boolean) => {
+    isSearchOpen.value = open;
+    searchInput.value?.focus();
+}
 </script>
 
 <template>
     <div class="container">
         <div class="head">
             <h1>Cardápio</h1>
-            <IconSearch v-if="!isSearchOpen" @click="isSearchOpen = true"/>
+            <IconSearch v-if="!isSearchOpen" @click="toggleSearch(true)"/>
             <input
                 type="text"
                 :class="{open: isSearchOpen}"
                 v-model="searchQuery"
                 @input="filterSearch"
                 placeholder="Nome do produto"
+                ref="searchInput"
             />
-            <IconClose v-if="isSearchOpen" class="buttonClose" @click="isSearchOpen = false"/>
+            <IconClose v-if="isSearchOpen" class="buttonClose" @click="toggleSearch(false)"/>
         </div>
         <section>
             <RouterLink v-for="(product, id) in showedProducts" :to="{name: 'produto', params: {id}}">
