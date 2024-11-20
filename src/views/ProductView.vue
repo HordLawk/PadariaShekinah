@@ -30,37 +30,26 @@ const {image, name, price} = [
 
 <template>
     <div class="container">
-        <div class="head">
-            <h1>{{ name }}</h1>
-            <IconClose @click="$router.back()"/>
-        </div>
         <img :src="image"/>
-        <h2>R$ {{ price.toFixed(2) }}</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et</p>
-        <a target="_blank" href="#">Pedir no iFood</a>
+        <div>
+            <h1>{{ name }}</h1>
+            <h2>R$ {{ price.toFixed(2) }}</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et</p>
+            <a target="_blank" href="#">Adicionar ao carrinho</a>
+        </div>
     </div>
 </template>
 
 <style scoped>
 .container {
-    margin: 1rem 2rem;
-    .head {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        svg {
-            height: 100%;
-            width: 2.5rem;
-            fill: var(--color-text);
-        }
-    }
+    margin: 2rem 2rem;
     > img {
-        width: 100%;
+        max-width: 100%;
         aspect-ratio: 1/1;
         border-radius: .5rem;
         object-fit: cover;
     }
-    > a {
+    > div > a {
         margin-top: 1rem;
         display: block;
         text-align: center;
@@ -72,6 +61,23 @@ const {image, name, price} = [
         font-size: 1.3rem;
         padding: .2rem 1rem;
         line-height: 2rem;
+    }
+    @media (min-width: 769px) {
+        margin: 5rem 3rem;
+        display: flex;
+        gap: 1.5rem;
+        > * {
+            width: 100%;
+            flex-grow: 1;
+        }
+    }
+    @media (min-width: 1025px) {
+        margin: 5rem 10rem;
+        gap: 3rem;
+    }
+    @media (min-width: 1441px) {
+        margin: 5rem 15rem;
+        gap: 5rem;
     }
 }
 </style>

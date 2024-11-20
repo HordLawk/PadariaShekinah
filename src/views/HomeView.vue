@@ -37,7 +37,7 @@ const products = [
         <p>Conheça nossos deliciosos produtos!</p>
         <RouterLink to="/cardapio"><div class="button">Visite o cardápio</div></RouterLink>
     </section>
-    <svg width="427" height="2" viewBox="0 0 427 2"><path d="M0 1H430" stroke-dasharray="20 20"/></svg>
+    <svg height="2"><path d="M0 1H1980" stroke-dasharray="20 20"/></svg>
     <section>
         <h2>SOBRE NÓS</h2>
         <p>
@@ -71,7 +71,7 @@ section {
 }
 svg {
     stroke: var(--color-text);
-    max-width: 100vw;
+    width: 100%;
 }
 </style>
 
@@ -95,6 +95,8 @@ svg {
     }
 }
 .p-carousel img {
-    max-width: 100vw;
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
 }
 </style>

@@ -117,9 +117,12 @@ const toggleSearch = (open: boolean) => {
         display: flex;
         flex-wrap: wrap;
         gap: 1rem;
+        justify-content: space-between;
+    }
+    > section > a {
+        max-width: calc(50% - 0.5rem);
     }
     > section .productCard {
-        max-width: calc(50vw - 2.5rem);
         background-color: var(--color-background-mute);
         border-radius: .5rem;
         display: flex;
