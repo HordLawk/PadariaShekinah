@@ -9,17 +9,44 @@ import IconContact from './components/icons/IconContact.vue';
 import IconAbout from './components/icons/IconAbout.vue';
 import IconLocation from './components/icons/IconLocation.vue';
 import IconCart from './components/icons/IconCart.vue';
+import IconIncrease from './components/icons/IconIncrease.vue';
+import IconContrast from './components/icons/IconContrast.vue';
+import IconDecrease from './components/icons/IconDecrease.vue';
 
 const isMenuOpen = ref(false);
 
-const toggleTheme = () => {console.log('toggle theme')}
+document.documentElement.setAttribute(
+    'data-theme',
+    window.matchMedia("(prefers-color-scheme: dark)").matches ? 'dark' : 'light',
+);
+
+const toggleTheme = () => {
+    document.documentElement.setAttribute(
+        'data-theme',
+        (document.documentElement.getAttribute('data-theme') === 'dark') ? 'light' : 'dark',
+    );
+}
+const incrementFontSize = (inc: number) => {
+    const fontSize = parseFloat(window.getComputedStyle(document.documentElement, null).getPropertyValue('font-size'));
+    if((fontSize + inc) > 20) return;
+    document.documentElement.style.fontSize = `${fontSize + inc}px`;
+}
 </script> 
 
 <template>
     <header>
         <RouterLink to="/"><h1>PADARIA<br/>SHEKINAH</h1></RouterLink>
         <div class="icons">
-            <IconAccessibility @click="toggleTheme"/>
+            <div class="accessibility">
+                <div>
+                    <div>
+                        <IconIncrease @click="incrementFontSize(2)" />
+                        <IconContrast @click="toggleTheme" />
+                        <IconDecrease @click="incrementFontSize(-2)" />
+                    </div>
+                </div>
+                <IconAccessibility />
+            </div>
             <IconMenu @click="isMenuOpen = true"/>
         </div>
         <div class="navBg" :class="{open: isMenuOpen}" @click="isMenuOpen = false"></div>
@@ -95,6 +122,28 @@ header {
     .icons {
         display: flex;
         gap: .5rem;
+        .accessibility {
+            height: 2.5rem;
+            position: relative;
+            > div {
+                background-color: var(--color-primary);
+                overflow: hidden;
+                height: 0rem;
+                transition-duration: .3s;
+                transition-property: height, top;
+                position: absolute;
+                top: 1.25rem;
+                > div {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.5rem;
+                }
+            }
+        }
+        .accessibility:hover > div {
+            height: 8.5rem;
+            top: -3rem;
+        }
     }
     svg {
         fill:  var(--color-secundary);

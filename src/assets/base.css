@@ -22,7 +22,7 @@
 }
 
 /* semantic color variables for this project */
-:root {
+:root, :root[data-theme="light"] {
   --color-background: var(--vt-c-white);
   --color-background-soft: var(--vt-c-white-soft);
   --color-background-mute: var(--vt-c-white-mute);
@@ -39,7 +39,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --color-background: var(--vt-c-black-soft);
     --color-background-soft: var(--vt-c-black-soft);
     --color-background-mute: var(--vt-c-black-mute);
@@ -52,6 +52,20 @@
     --color-heading: var(--vt-c-text-dark-1);
     --color-text: var(--vt-c-text-dark-1);
   }
+}
+
+[data-theme="dark"] {
+  --color-background: var(--vt-c-black-soft);
+  --color-background-soft: var(--vt-c-black-soft);
+  --color-background-mute: var(--vt-c-black-mute);
+  --color-primary: #111111;
+  --color-secundary: #F2B705;
+
+  --color-border: var(--vt-c-divider-dark-2);
+  --color-border-hover: var(--vt-c-divider-dark-1);
+
+  --color-heading: var(--vt-c-text-dark-1);
+  --color-text: var(--vt-c-text-dark-1);
 }
 
 *,
