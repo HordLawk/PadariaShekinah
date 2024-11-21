@@ -102,15 +102,17 @@ const toggleSearch = (open: boolean) => {
         > input::placeholder {
             color: var(--vt-c-divider-dark-1)
         }
-        > input.open {
+        > input.open, input:focus {
             width: 100%;
             padding: .1rem .5rem;
         }
         svg {
             width: 2.5rem;
+            fill: var(--color-text);
+            cursor: pointer;
         }
         .buttonClose {
-            fill: var(--color-primary)
+            fill: var(--color-primary);
         }
     }
     > section {

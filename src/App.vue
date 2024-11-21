@@ -40,9 +40,17 @@ const incrementFontSize = (inc: number) => {
             <div class="accessibility">
                 <div>
                     <div>
-                        <IconIncrease @click="incrementFontSize(2)" />
-                        <IconContrast @click="toggleTheme" />
-                        <IconDecrease @click="incrementFontSize(-2)" />
+                        <IconIncrease
+                            tabindex="0"
+                            @click="incrementFontSize(2)"
+                            @keydown.enter.space="incrementFontSize(2)"
+                        />
+                        <IconContrast tabindex="0" @click="toggleTheme" @keydown.enter.space="toggleTheme" />
+                        <IconDecrease
+                            tabindex="0"
+                            @click="incrementFontSize(-2)"
+                            @keydown.enter.space="incrementFontSize(-2)"
+                        />
                     </div>
                 </div>
                 <IconAccessibility />
