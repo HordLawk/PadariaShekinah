@@ -39,7 +39,7 @@ const filterSearch = () => {
 }
 const toggleSearch = (open: boolean) => {
     isSearchOpen.value = open;
-    searchInput.value?.focus();
+    if(open) searchInput.value?.focus();
 }
 </script>
 
@@ -112,7 +112,7 @@ const toggleSearch = (open: boolean) => {
             cursor: pointer;
         }
         .buttonClose {
-            fill: var(--color-primary);
+            fill: var(--vt-c-black);
         }
     }
     > section {
