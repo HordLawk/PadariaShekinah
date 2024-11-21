@@ -76,7 +76,7 @@ const {image, name, price} = [
         gap: 3rem;
     }
     @media (min-width: 1441px) {
-        margin: 5rem 15rem;
+        margin: 5rem 25rem;
         gap: 5rem;
     }
 }

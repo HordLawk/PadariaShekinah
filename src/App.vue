@@ -47,7 +47,7 @@ const incrementFontSize = (inc: number) => {
                 </div>
                 <IconAccessibility />
             </div>
-            <IconMenu @click="isMenuOpen = true"/>
+            <IconMenu class="menuIcon" @click="isMenuOpen = true"/>
         </div>
         <div class="navBg" :class="{open: isMenuOpen}" @click="isMenuOpen = false"></div>
         <nav :class="{open: isMenuOpen}">
@@ -112,43 +112,46 @@ main {
 
 header {
     background-color: var(--color-primary);
-    height: 12rem;
+    height: 192px;
     color:  var(--color-secundary);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 2rem;
+    padding: 32px;
     overflow: hidden;
+    h1 {
+        font-size: 32px;
+    }
     .icons {
         display: flex;
-        gap: .5rem;
+        gap: 8px;
         .accessibility {
-            height: 2.5rem;
+            height: 40px;
             position: relative;
             > div {
                 background-color: var(--color-primary);
                 overflow: hidden;
-                height: 0rem;
+                height: 0px;
                 transition-duration: .3s;
                 transition-property: height, top;
                 position: absolute;
-                top: 1.25rem;
+                top: 20px;
                 > div {
                     display: flex;
                     flex-direction: column;
-                    gap: 0.5rem;
+                    gap: 8px;
                 }
             }
         }
         .accessibility:hover > div {
-            height: 8.5rem;
-            top: -3rem;
+            height: 136px;
+            top: -48px;
         }
     }
     svg {
         fill:  var(--color-secundary);
-        width: 2.5rem;
-        height: 2.5rem;
+        width: 40px;
+        height: 40px;
         cursor: pointer;
     }
     h1 {
@@ -182,8 +185,8 @@ header {
         top: 0;
         left: 100vw;
         background-color: var(--color-primary);
-        padding: 2rem;
-        font-size: 2rem;
+        padding: 32px;
+        font-size: 32px;
         z-index: 101;
         > ul {
             list-style-type: none;
@@ -191,16 +194,65 @@ header {
             > li > a {
                 display: flex;
                 align-items: center;
-                gap: 1rem;
+                gap: 16px;
             }
             > li .router-link-exact-active {
                 font-weight: bold;
-                padding-inline-start: 1rem;
+                padding-inline-start: 16px;
             }
         }
     }
     nav.open {
         transform: translate(-80vw);
+    }
+    @media (min-width: 1025px) {
+        height: 128px;
+        > nav {
+            position: static;
+            width: auto;
+            height: auto;
+            background-color: none;
+            padding: 0;
+            z-index: inherit;
+            font-size: 24px;
+            > ul {
+                display: flex;
+                gap: 16px;
+                > li > a svg {
+                    display: none;
+                }
+                > li .router-link-exact-active {
+                    padding-inline-start: 0;
+                }
+            }
+        }
+        .icons {
+            margin-right: 16px;
+            flex-grow: 1;
+            justify-content: end;
+            svg {
+                width: 32px;
+                height: 32px;
+            }
+            .accessibility {
+                height: 32px;
+                > div {
+                    height: 32px;
+                    top: 0;
+                    right: 0;
+                    > div {
+                        flex-direction: row;
+                    }
+                }
+            }
+            .accessibility:hover > div {
+                height: 40px;
+                top: 0;
+            }
+        }
+        .menuIcon {
+            display: none;
+        }
     }
 }
 </style>

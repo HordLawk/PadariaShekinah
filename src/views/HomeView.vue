@@ -68,6 +68,9 @@ section {
         padding: .2rem 1rem;
         line-height: 2rem;
     }
+    @media (min-width: 769px) {
+        margin: 1rem 15rem;
+    }
 }
 svg {
     stroke: var(--color-text);

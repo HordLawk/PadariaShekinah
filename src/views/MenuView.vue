@@ -74,7 +74,7 @@ const toggleSearch = (open: boolean) => {
 
 <style scoped>
 .container {
-    margin: 1rem 2rem;
+    margin: 2rem 2rem;
     .head {
         position: relative;
         height: 2.5rem;
@@ -139,6 +139,12 @@ const toggleSearch = (open: boolean) => {
             flex-grow: 1;
             margin: .5rem .8rem .5rem .8rem;
             color: var(--color-text)
+        }
+    }
+    @media (min-width: 1025px) {
+        margin: 5rem 15rem;
+        > section .productCard {
+            max-width: 20rem;
         }
     }
 }
