@@ -1,42 +1,19 @@
 <script setup lang="ts">
+import type { ProductType } from '@/assets/utils';
+import { fetchProducts, toPriceString } from '@/assets/utils';
 import IconClose from '@/components/icons/IconClose.vue';
 import IconSearch from '@/components/icons/IconSearch.vue';
 import { ref, useTemplateRef } from 'vue';
 
-const products = [
-    {
-        image: 'https://placehold.co/400/fdd/000',
-        name: 'Bolo',
-        price: 100,
-    },
-    {
-        image: 'https://placehold.co/400/dfd/000',
-        name: 'Casadinho',
-        price: 50,
-    },
-    {
-        image: 'https://placehold.co/400/ddf/000',
-        name: 'Hamburguer',
-        price: 25,
-    },
-    {
-        image: 'https://placehold.co/400/ffd/000',
-        name: 'Palha italiana',
-        price: 5,
-    },
-];
+const products = ref<ProductType[]>([]);
 const isSearchOpen = ref(false);
-const showedProducts = ref(products);
 const searchQuery = ref('');
 const searchInput = useTemplateRef('searchInput');
 
-const filterSearch = () => {
-    showedProducts.value = (
-        searchQuery.value
-        ? showedProducts.value.filter(p => p.name.toLocaleLowerCase().startsWith(searchQuery.value.toLocaleLowerCase()))
-        : products
-    );
-}
+fetchProducts({}).then(res => (products.value = res));
+
+const filterSearch = () => fetchProducts({query: searchQuery.value}).then(res => (products.value = res));
+
 const toggleSearch = (open: boolean) => {
     isSearchOpen.value = open;
     if(open) searchInput.value?.focus();
@@ -59,12 +36,16 @@ const toggleSearch = (open: boolean) => {
             <IconClose v-if="isSearchOpen" class="buttonClose" @click="toggleSearch(false)"/>
         </div>
         <section>
-            <RouterLink v-for="(product, id) in showedProducts" :to="{name: 'produto', params: {id}}">
+            <RouterLink
+                v-for="{_id, name, image, price} in products"
+                :key="_id"
+                :to="{name: 'produto', params: {id: _id}}"
+            >
                 <div class="productCard">
-                    <img :src="product.image"/>
+                    <img :src="image"/>
                     <div>
-                        <h2>{{product.name}}</h2>
-                        <p>R$ {{product.price.toFixed(2)}}</p>
+                        <h2>{{name}}</h2>
+                        <p>{{toPriceString(price)}}</p>
                     </div>
                 </div>
             </RouterLink>
@@ -143,11 +124,17 @@ const toggleSearch = (open: boolean) => {
             color: var(--color-text)
         }
     }
-    @media (min-width: 1025px) {
-        margin: 5rem 15rem;
+    @media (min-width: 769px) {
+        margin: 5rem 5rem;
         > section .productCard {
             max-width: 20rem;
         }
+    }
+    @media (min-width: 1025px) {
+        margin: 5rem 10rem;
+    }
+    @media (min-width: 1441px) {
+        margin: 5rem 15rem;
     }
 }
 </style>

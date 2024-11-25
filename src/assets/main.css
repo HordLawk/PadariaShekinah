@@ -19,15 +19,22 @@ a {
     background-color: #EA1D2C;
     border-radius: .5rem;
     font-weight: 500;
-    color: var(--vt-c-text-dark-1);
+    color: var(--vt-c-white);
     font-size: 1.3rem;
     padding: .2rem 1rem;
     line-height: 2rem;
+    cursor: pointer;
+    text-align: center;
 }
 
 .full {
     margin-top: 1rem;
     display: block;
-    text-align: center;
     width: 100%;
+}
+
+.disabled {
+    background-color: var(--color-border);
+    color: var(--color-text);
+    cursor: default;
 }

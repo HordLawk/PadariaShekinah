@@ -1,28 +1,16 @@
 <script setup lang="ts">
+import { fetchProducts, type ProductType } from '@/assets/utils';
 import Carousel from 'primevue/carousel';
+import { ref } from 'vue';
 
-const products = [
-    {
-        image: 'https://placehold.co/600x400/fdd/000',
-        name: 'Bolo',
-        price: 100,
-    },
-    {
-        image: 'https://placehold.co/600x400/dfd/000',
-        name: 'Casadinho',
-        price: 50,
-    },
-    {
-        image: 'https://placehold.co/600x400/ddf/000',
-        name: 'Hamburguer',
-        price: 25,
-    },
-    {
-        image: 'https://placehold.co/600x400/ffd/000',
-        name: 'Palha italiana',
-        price: 5,
-    },
-];
+const products = ref<ProductType[]>([{
+    _id: 0,
+    image: 'https://placehold.co/400/fdd/000',
+    name: 'Bolo',
+    price: 100,
+}]);
+
+fetchProducts({}).then(res => (products.value = res));
 </script>
 
 <template>
@@ -60,6 +48,12 @@ section {
         text-align: justify;
     }
     @media (min-width: 769px) {
+        margin: 1rem 5rem;
+    }
+    @media (min-width: 1025px) {
+        margin: 1rem 10rem;
+    }
+    @media (min-width: 1441px) {
         margin: 1rem 15rem;
     }
 }
