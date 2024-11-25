@@ -96,18 +96,6 @@ textarea:focus {
   outline: none;
 }
 
-.button {
-  background-color: #EA1D2C;
-  border-radius: .5rem;
-  font-weight: 500;
-  color: var(--vt-c-text-dark-1);
-  font-size: 1.3rem;
-  padding: .2rem 1rem;
-  line-height: 2rem;
-  display: inline-block;
-  margin: 1rem auto;
-}
-
 div {
   display: flex;
   justify-content: center;

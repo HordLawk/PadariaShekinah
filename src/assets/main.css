@@ -1,16 +1,33 @@
 @import './base.css';
 
 #app {
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  padding: 0;
-  font-weight: normal;
-  min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 0;
+    font-weight: normal;
+    min-height: 100vh;
 }
 
 a {
-  text-decoration: none;
-  color: var(--color-secundary);
-  transition: 0.3s;
+    text-decoration: none;
+    color: var(--color-secundary);
+    transition: 0.3s;
+}
+
+.button {
+    background-color: #EA1D2C;
+    border-radius: .5rem;
+    font-weight: 500;
+    color: var(--vt-c-text-dark-1);
+    font-size: 1.3rem;
+    padding: .2rem 1rem;
+    line-height: 2rem;
+}
+
+.full {
+    margin-top: 1rem;
+    display: block;
+    text-align: center;
+    width: 100%;
 }

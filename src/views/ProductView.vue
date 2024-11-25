@@ -35,7 +35,7 @@ const {image, name, price} = [
             <h1>{{ name }}</h1>
             <h2>R$ {{ price.toFixed(2) }}</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et</p>
-            <a target="_blank" href="#">Adicionar ao carrinho</a>
+            <div class="button full">Adicionar ao carrinho</div>
         </div>
     </div>
 </template>
@@ -48,19 +48,6 @@ const {image, name, price} = [
         aspect-ratio: 1/1;
         border-radius: .5rem;
         object-fit: cover;
-    }
-    > div > a {
-        margin-top: 1rem;
-        display: block;
-        text-align: center;
-        width: 100%;
-        background-color: #EA1D2C;
-        border-radius: .5rem;
-        font-weight: 500;
-        color: var(--vt-c-text-dark-1);
-        font-size: 1.3rem;
-        padding: .2rem 1rem;
-        line-height: 2rem;
     }
     @media (min-width: 769px) {
         margin: 5rem 3rem;

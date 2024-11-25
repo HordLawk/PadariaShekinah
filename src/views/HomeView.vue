@@ -59,15 +59,6 @@ section {
         font-size: 1.3rem;
         text-align: justify;
     }
-    .button {
-        background-color: #EA1D2C;
-        border-radius: .5rem;
-        font-weight: 500;
-        color: var(--vt-c-text-dark-1);
-        font-size: 1.3rem;
-        padding: .2rem 1rem;
-        line-height: 2rem;
-    }
     @media (min-width: 769px) {
         margin: 1rem 15rem;
     }
