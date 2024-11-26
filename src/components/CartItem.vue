@@ -35,9 +35,19 @@ const incrementAmount = (inc: number) => {
             <div>
                 <h3>{{ toPriceString(price ?? 0) }}</h3>
                 <div class="amount">
-                    <IconRemove class="clickableIcon" tabindex="0" @click="incrementAmount(-1)" @keyup.enter.space="incrementAmount(-1)"/>
+                    <IconRemove
+                        class="clickableIcon"
+                        tabindex="0"
+                        @click="incrementAmount(-1)"
+                        @keyup.enter.space="incrementAmount(-1)"
+                    />
                     <h3>{{ amount }}</h3>
-                    <IconAdd class="clickableIcon" tabindex="0" @click="incrementAmount(1)" @keyup.enter.space="incrementAmount(1)"/>
+                    <IconAdd
+                        class="clickableIcon"
+                        tabindex="0"
+                        @click="incrementAmount(1)"
+                        @keyup.enter.space="incrementAmount(1)"
+                    />
                 </div>
             </div>
         </div>

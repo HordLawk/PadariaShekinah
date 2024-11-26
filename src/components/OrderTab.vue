@@ -40,13 +40,15 @@ const sendOrder = () => {
     );
     window.open(`https://wa.me/${''}?text=${encodeURI(message)}`, '_blank');
 }
+
+const returnToCart = () => cartConfirmation.value = true;
 </script>
 
 <template>
     <form class="container" @submit.prevent.stop="sendOrder">
         <div class="head">
             <h1>Informações</h1>
-            <IconBack class="clickableIcon" @click="cartConfirmation = true" />
+            <IconBack class="clickableIcon" tabindex="0" @click="returnToCart" @keyup.space.enter="returnToCart" />
         </div>
         <p>Campos com * são obrigatórios</p>
         <div>

@@ -24,7 +24,13 @@ const toggleSearch = (open: boolean) => {
     <div class="container">
         <div class="head">
             <h1>Cardápio</h1>
-            <IconSearch class="clickableIcon" v-if="!isSearchOpen" @click="toggleSearch(true)"/>
+            <IconSearch
+                v-if="!isSearchOpen"
+                class="clickableIcon"
+                tabindex="0"
+                @click="toggleSearch(true)"
+                @keyup.space.enter="toggleSearch(true)"
+            />
             <input
                 type="text"
                 :class="{open: isSearchOpen}"
@@ -33,7 +39,13 @@ const toggleSearch = (open: boolean) => {
                 placeholder="Nome do produto"
                 ref="searchInput"
             />
-            <IconClose class="clickableIcon" v-if="isSearchOpen" @click="toggleSearch(false)"/>
+            <IconClose
+                v-if="isSearchOpen"
+                class="clickableIcon"
+                tabindex="0"
+                @click="toggleSearch(false)"
+                @keyup.space.enter="toggleSearch(false)"
+            />
         </div>
         <section>
             <RouterLink
