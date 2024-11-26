@@ -12,11 +12,12 @@
 a {
     text-decoration: none;
     color: var(--color-secundary);
-    transition: 0.3s;
+    transition-duration: 0.3s;
+    transition-property: color;
 }
 
 .button {
-    background-color: #EA1D2C;
+    background-color: var(--vt-c-red);
     border-radius: .5rem;
     font-weight: 500;
     color: var(--vt-c-white);
@@ -25,6 +26,11 @@ a {
     line-height: 2rem;
     cursor: pointer;
     text-align: center;
+    transition: .3s;
+}
+
+.button:hover {
+    opacity: .7;
 }
 
 .full {
@@ -37,4 +43,29 @@ a {
     background-color: var(--color-border);
     color: var(--color-text);
     cursor: default;
+}
+
+input[type='text'], input[type='number'], input[type='tel'] {
+    border-width: 0;
+    border-radius: .5rem;
+    transition: .3s;
+    text-align: left;
+    height: 2.5rem;
+    padding: .1rem .5rem;
+    background-color: var(--color-background-mute);
+    color: var(--color-text);
+}
+
+input[type='text']::placeholder, input[type='number']::placeholder, input[type='tel']::placeholder {
+    color: var(--color-border-hover);
+}
+
+svg.clickableIcon {
+    transition: .3s;
+    cursor: pointer;
+    fill: var(--color-text);
+}
+
+svg.clickableIcon:hover {
+    fill: var(--vt-c-yellow);
 }

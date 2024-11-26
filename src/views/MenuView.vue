@@ -24,7 +24,7 @@ const toggleSearch = (open: boolean) => {
     <div class="container">
         <div class="head">
             <h1>Cardápio</h1>
-            <IconSearch v-if="!isSearchOpen" @click="toggleSearch(true)"/>
+            <IconSearch class="clickableIcon" v-if="!isSearchOpen" @click="toggleSearch(true)"/>
             <input
                 type="text"
                 :class="{open: isSearchOpen}"
@@ -33,7 +33,7 @@ const toggleSearch = (open: boolean) => {
                 placeholder="Nome do produto"
                 ref="searchInput"
             />
-            <IconClose v-if="isSearchOpen" class="buttonClose" @click="toggleSearch(false)"/>
+            <IconClose class="clickableIcon" v-if="isSearchOpen" @click="toggleSearch(false)"/>
         </div>
         <section>
             <RouterLink
@@ -74,14 +74,8 @@ const toggleSearch = (open: boolean) => {
         }
         > input {
             width: 0%;
-            padding: 0rem;
-            border-width: 0;
-            border-radius: .5rem;
-            transition: .3s;
             text-align: left;
-        }
-        > input::placeholder {
-            color: var(--vt-c-divider-dark-1)
+            padding: 0;
         }
         > input.open, input:focus {
             width: 100%;
@@ -89,11 +83,6 @@ const toggleSearch = (open: boolean) => {
         }
         svg {
             width: 2.5rem;
-            fill: var(--color-text);
-            cursor: pointer;
-        }
-        .buttonClose {
-            fill: var(--vt-c-black);
         }
     }
     > section {
@@ -110,6 +99,7 @@ const toggleSearch = (open: boolean) => {
         border-radius: .5rem;
         display: flex;
         flex-direction: column;
+        transition: .3s;
         > img {
             border-top-left-radius: .5rem;
             border-top-right-radius: .5rem;
@@ -123,6 +113,10 @@ const toggleSearch = (open: boolean) => {
             margin: .5rem .8rem .5rem .8rem;
             color: var(--color-text)
         }
+    }
+    > section .productCard:hover {
+        background-color: var(--color-border);
+        transform: translate(0, -.5rem);
     }
     @media (min-width: 769px) {
         margin: 5rem 5rem;

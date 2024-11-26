@@ -26,14 +26,14 @@ const remove = () => {
         <div>
             <div>
                 <h2> {{ name }} </h2>
-                <IconDelete tabindex="0" @click="remove" @keyup.enter.space="remove"/>
+                <IconDelete class="clickableIcon" tabindex="0" @click="remove" @keyup.enter.space="remove"/>
             </div>
             <div>
                 <h3>{{ toPriceString(price ?? 0) }}</h3>
                 <div class="amount">
-                    <IconRemove tabindex="0" @click="incrementAmount(-1)" @keyup.enter.space="incrementAmount(-1)"/>
+                    <IconRemove class="clickableIcon" tabindex="0" @click="incrementAmount(-1)" @keyup.enter.space="incrementAmount(-1)"/>
                     <h3>{{ amount }}</h3>
-                    <IconAdd tabindex="0" @click="incrementAmount(1)" @keyup.enter.space="incrementAmount(1)"/>
+                    <IconAdd class="clickableIcon" tabindex="0" @click="incrementAmount(1)" @keyup.enter.space="incrementAmount(1)"/>
                 </div>
             </div>
         </div>
@@ -60,10 +60,6 @@ const remove = () => {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        svg {
-            cursor: pointer;
-            fill: var(--color-text);
-        }
         > div {
             display: flex;
             justify-content: space-between;

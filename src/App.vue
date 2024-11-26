@@ -148,6 +148,12 @@ header {
                     display: flex;
                     flex-direction: column;
                     gap: 8px;
+                    svg {
+                        transition: .3s;
+                    }
+                    > svg:hover {
+                        opacity: .7;
+                    }
                 }
             }
         }
@@ -186,7 +192,8 @@ header {
         }
     }
     > nav {
-        transition: .3s;
+        transition-duration: .3s;
+        transition-property: transform;
         position: fixed;
         width: 80vw;
         height: 100vh;
@@ -203,6 +210,10 @@ header {
                 display: flex;
                 align-items: center;
                 gap: 16px;
+                transition-property: padding-inline-start, opacity;
+            }
+            > li a:hover{
+                opacity: .7;
             }
             > li .router-link-exact-active {
                 font-weight: bold;
