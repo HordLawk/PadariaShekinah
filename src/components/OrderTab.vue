@@ -1,5 +1,14 @@
 <script setup lang="ts">
+import type { CartProductType, ProductType } from '@/assets/utils';
 import { ref } from 'vue';
+import IconBack from './icons/IconBack.vue';
+
+const cartConfirmation = defineModel<boolean>();
+const {price, products, cart} = defineProps<{
+    price: string,
+    products: ProductType[],
+    cart: CartProductType[],
+}>();
 
 const isDelivery = ref(true);
 const name = ref('');
@@ -7,6 +16,8 @@ const phone = ref('');
 const street = ref('');
 const number = ref('');
 const complement = ref('');
+
+const findProduct = (id: number) => products.find(product => (product._id === id));
 
 const sendOrder = () => {
     let message = (
@@ -21,13 +32,22 @@ const sendOrder = () => {
         );
         if(complement.value) message += `*Complemento:* ${complement.value}\n`;
     }
+    message += (
+        `*Total:* ${price}\n` +
+        '\n' +
+        '*Produtos:*\n' +
+        cart.map(({id, amount}) => `- ${findProduct(id)?.name} (${amount})`).join('\n')
+    );
     window.open(`https://wa.me/${''}?text=${encodeURI(message)}`, '_blank');
 }
 </script>
 
 <template>
     <form class="container" @submit.prevent.stop="sendOrder">
-        <h1>Informações</h1>
+        <div class="head">
+            <h1>Informações</h1>
+            <IconBack class="clickableIcon" @click="cartConfirmation = true" />
+        </div>
         <p>Campos com * são obrigatórios</p>
         <div>
             <label for="name">Nome *</label>
@@ -92,6 +112,15 @@ const sendOrder = () => {
             font-size: 1.5rem;
         }
     }
+    .head {
+        flex-direction: row;
+        justify-content: space-between;
+        line-height: 2.5rem;
+        .clickableIcon {
+            width: 2.5rem;
+            height: 2.5rem;
+        }
+    }
     .delivery {
         flex-direction: row;
         gap: 1rem;
@@ -117,13 +146,13 @@ const sendOrder = () => {
         border: none;
     }
     @media (min-width: 769px) {
-        margin: 1rem 5rem;
+        margin: 5rem 5rem;
     }
     @media (min-width: 1025px) {
-        margin: 1rem 10rem;
+        margin: 5rem 10rem;
     }
     @media (min-width: 1441px) {
-        margin: 1rem 15rem;
+        margin: 5rem 15rem;
     }
 }
 </style>

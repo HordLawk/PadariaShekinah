@@ -13,10 +13,14 @@ const props = defineProps({
 });
 const emit = defineEmits(['amountChanged', 'removeItem']);
 
-const incrementAmount = (inc: number) => emit('amountChanged', {id: props._id, amount: ((props.amount ?? 1) + inc)});
-
 const remove = () => {
-    if(confirm("Tem certeza que deseja remover o produto do carrinho?")) emit('removeItem', props._id);
+    if(confirm("Tem certeza que deseja remover o produto do carrinho?")) emit('removeItem');
+}
+
+const incrementAmount = (inc: number) => {
+    const newAmount = ((props.amount ?? 0) + inc);
+    if(newAmount < 1) return remove();
+    emit('amountChanged', newAmount);
 }
 </script>
 

@@ -42,10 +42,6 @@ const router = createRouter({
       path: '/carrinho',
       component: () => import('../views/CartView.vue'),
     },
-    {
-      path: '/pedido',
-      component: () => import('../views/OrderView.vue'),
-    },
   ],
 })
 
