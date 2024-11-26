@@ -23,7 +23,7 @@ fetchProducts({}).then(res => (products.value = res));
     </Carousel>
     <section>
         <p>Conheça nossos deliciosos produtos!</p>
-        <RouterLink to="/cardapio"><div class="button">Visite o cardápio</div></RouterLink>
+        <RouterLink to="/cardapio"><button>Visite o cardápio</button></RouterLink>
     </section>
     <svg height="2"><path d="M0 1H1980" stroke-dasharray="20 20"/></svg>
     <section>

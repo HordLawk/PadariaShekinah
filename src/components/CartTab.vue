@@ -32,7 +32,7 @@ const findProduct = (id: number) => products.find(product => (product._id === id
             </div>
             <div class="total">
                 <h2>Total: {{ price }}</h2>
-                <div class="button" @click="cartConfirmation = false">Próximo</div>
+                <button @click="cartConfirmation = false">Próximo</button>
             </div>
         </section>
         <section v-else>Nenhum produto no carrinho</section>
@@ -57,7 +57,7 @@ const findProduct = (id: number) => products.find(product => (product._id === id
             display: flex;
             align-items: center;
             gap: 1rem;
-            .button {
+            > button {
                 flex-grow: 1;
             }
         }

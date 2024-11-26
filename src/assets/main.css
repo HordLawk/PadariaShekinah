@@ -16,7 +16,8 @@ a {
     transition-property: color;
 }
 
-.button {
+button {
+    border-width: 0;
     background-color: var(--vt-c-red);
     border-radius: .5rem;
     font-weight: 500;
@@ -29,17 +30,17 @@ a {
     transition: .3s;
 }
 
-.button:hover {
+button:hover:not(.disabled) {
     opacity: .7;
 }
 
-.full {
+button.full {
     margin-top: 1rem;
     display: block;
     width: 100%;
 }
 
-.disabled {
+button.disabled {
     background-color: var(--color-border);
     color: var(--color-text);
     cursor: default;

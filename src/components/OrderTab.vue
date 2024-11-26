@@ -97,7 +97,7 @@ const returnToCart = () => cartConfirmation.value = true;
                 />
             </div>
         </template>
-        <input type="submit" class="button full" value="Enviar por WhatsApp" />
+        <button class="full">Enviar por WhatsApp</button>
     </form>
 </template>
 
@@ -143,9 +143,8 @@ const returnToCart = () => cartConfirmation.value = true;
     > p {
         color: var(--vt-c-red);
     }
-    .button {
+    > button {
         background-color: #25d366;
-        border: none;
     }
     @media (min-width: 769px) {
         margin: 5rem 5rem;

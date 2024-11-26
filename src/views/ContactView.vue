@@ -49,7 +49,7 @@ const hideSuccessMessage = () => {
     <textarea class="contato-textarea-curto" v-model="telefone">(99) 90000-0000</textarea>
   </section>
 <div>
-    <div class="button" @click="handleFormSubmit">Enviar</div>
+    <button @click="handleFormSubmit">Enviar</button>
 </div>
   <div v-if="successMessage" class="success-message" @transitionend="hideSuccessMessage">
     Dados enviados com sucesso!
