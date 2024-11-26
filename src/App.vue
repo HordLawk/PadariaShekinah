@@ -194,15 +194,9 @@ header {
     > nav {
         transition-duration: .3s;
         transition-property: transform;
-        position: fixed;
-        width: 80vw;
-        height: 100vh;
         top: 0;
         left: 100vw;
-        background-color: var(--color-primary);
-        padding: 32px;
         font-size: 32px;
-        z-index: 101;
         > ul {
             list-style-type: none;
             padding-inline-start: 0;
@@ -217,6 +211,16 @@ header {
             }
             > li .router-link-exact-active {
                 font-weight: bold;
+            }
+        }
+        @media (max-width: 1024px) {
+            position: fixed;
+            width: 80vw;
+            height: 100vh;
+            background-color: var(--color-primary);
+            padding: 32px;
+            z-index: 101;
+            > ul > li .router-link-exact-active {
                 padding-inline-start: 16px;
             }
         }
@@ -227,21 +231,12 @@ header {
     @media (min-width: 1025px) {
         height: 128px;
         > nav {
-            position: static;
-            width: auto;
-            height: auto;
-            background-color: none;
-            padding: 0;
-            z-index: inherit;
             font-size: 24px;
             > ul {
                 display: flex;
                 gap: 16px;
                 > li > a svg {
                     display: none;
-                }
-                > li .router-link-exact-active {
-                    padding-inline-start: 0;
                 }
             }
         }
