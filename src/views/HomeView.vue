@@ -5,7 +5,7 @@ import { ref } from 'vue';
 
 const products = ref<ProductType[]>([{
     _id: 0,
-    image: 'https://placehold.co/400/fdd/000',
+    image: './images/bolo-flores.jpg',
     name: 'Bolo',
     price: 100,
 }]);
