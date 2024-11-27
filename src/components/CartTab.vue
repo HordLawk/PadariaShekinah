@@ -19,7 +19,7 @@ const findProduct = (id: number) => products.find(product => (product._id === id
 <template>
     <div class="container">
         <h1>Carrinho</h1>
-        <section v-if="products.length">
+        <section v-if="cart.length && products.length">
             <div class="items">
                 <CartItem
                     v-for="{id, amount} in cart"
