@@ -4,21 +4,23 @@ import { toPriceString } from '../assets/utils.js';
 import IconRemove from './icons/IconRemove.vue';
 import IconAdd from './icons/IconAdd.vue';
 
-const props = defineProps({
-    _id: Number,
-    name: String,
-    image: String,
-    price: Number,
-    amount: Number,
-});
-const emit = defineEmits(['amountChanged', 'removeItem']);
+const {name, image, price, amount} = defineProps<{
+    name?: string,
+    image?: string,
+    price?: number,
+    amount: number,
+}>();
+const emit = defineEmits<{
+    (e: 'removeItem'): void,
+    (e: 'amountChanged', amount: number): void,
+}>();
 
 const remove = () => {
     if(confirm("Tem certeza que deseja remover o produto do carrinho?")) emit('removeItem');
 }
 
 const incrementAmount = (inc: number) => {
-    const newAmount = ((props.amount ?? 0) + inc);
+    const newAmount = amount + inc;
     if(newAmount < 1) return remove();
     emit('amountChanged', newAmount);
 }
@@ -26,10 +28,10 @@ const incrementAmount = (inc: number) => {
 
 <template>
     <div class="item">
-        <img :src="image"/>
+        <img :src="image ?? 'https://placehold.co/500x600'"/>
         <div>
             <div>
-                <h2> {{ name }} </h2>
+                <h2> {{ name ?? '' }} </h2>
                 <IconDelete class="clickableIcon" tabindex="0" @click="remove" @keyup.enter.space="remove"/>
             </div>
             <div>
