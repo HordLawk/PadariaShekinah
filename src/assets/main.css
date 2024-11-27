@@ -30,7 +30,7 @@ button {
     transition: .3s;
 }
 
-button:hover:not(.disabled) {
+button:enabled:hover {
     opacity: .7;
 }
 
@@ -40,7 +40,7 @@ button.full {
     width: 100%;
 }
 
-button.disabled {
+button:disabled {
     background-color: var(--color-border);
     color: var(--color-text);
     cursor: default;
