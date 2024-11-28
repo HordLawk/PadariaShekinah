@@ -3,19 +3,19 @@ import { ref } from 'vue';
 
 const team = [
     {
-        image: '/assets/defaultavatar2.jpg',
+        image: `${import.meta.env.BASE_URL}/assets/defaultavatar2.jpg`,
         name: 'Dona',
     },
     {
-        image: '/assets/defaultavatar2.jpg',
+        image: `${import.meta.env.BASE_URL}/assets/defaultavatar2.jpg`,
         name: 'Gerente',
     },
     {
-        image: '/assets/defaultavatar2.jpg',
+        image: `${import.meta.env.BASE_URL}/assets/defaultavatar2.jpg`,
         name: 'Atendente',
     },
     {
-        image: '/assets/defaultavatar2.jpg',
+        image: `${import.meta.env.BASE_URL}/assets/defaultavatar2.jpg`,
         name: 'Padeiro',
     },
 ];
