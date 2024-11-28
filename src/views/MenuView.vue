@@ -112,10 +112,13 @@ const toggleSearch = (open: boolean) => {
         display: flex;
         flex-direction: column;
         transition: .3s;
+        height: 100%;
         > img {
             border-top-left-radius: .5rem;
             border-top-right-radius: .5rem;
             max-width: 100%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
         }
         > div{
             display: flex;

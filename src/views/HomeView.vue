@@ -84,7 +84,7 @@ svg {
 }
 .p-carousel img {
     width: 100%;
-    max-height: 400px;
+    height: 400px;
     object-fit: cover;
 }
 </style>
