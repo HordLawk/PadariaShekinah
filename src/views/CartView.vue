@@ -55,7 +55,7 @@ const changeAmount = ({id, amount}: CartProductType) => {
 </script>
 
 <template>
-    <Transition name="slide" mode="out-in">
+    <Transition :name="cartConfirmation ? 'prev' : 'next'" mode="out-in">
         <CartTab
             v-if="cartConfirmation"
             v-model="cartConfirmation"
@@ -70,17 +70,19 @@ const changeAmount = ({id, amount}: CartProductType) => {
 </template>
 
 <style>
-.slide-enter-active,
-.slide-leave-active {
+.next-enter-active,
+.next-leave-active,
+.prev-enter-active,
+.prev-leave-active {
   transition-duration: .15s;
 }
 
-.slide-enter-from {
+.next-enter-from, .prev-leave-to {
   opacity: 0;
   transform: translateX(400px);
 }
 
-.slide-leave-to {
+.next-leave-to, .prev-enter-from {
   opacity: 0;
   transform: translateX(-400px);
 }
