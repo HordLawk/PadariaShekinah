@@ -90,7 +90,7 @@ svg {
 <style>
 button.p-carousel-prev-button {
     margin-right: -3rem;
-    z-index: 100;
+    z-index: 99;
     height: 400px !important;
     background-image: linear-gradient(270deg, rgba(0,0,0,0), rgba(0,0,0,0.9)) !important;
     border-radius: 0 !important;
@@ -107,7 +107,7 @@ button.p-carousel-prev-button:hover {
 }
 button.p-carousel-next-button {
     margin-left: -3rem;
-    z-index: 100;
+    z-index: 99;
     height: 400px !important;
     background-image: linear-gradient(90deg, rgba(0,0,0,0), rgba(0,0,0,0.9)) !important;
     border-radius: 0 !important;

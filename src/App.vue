@@ -181,7 +181,8 @@ header {
         top: 0;
         left: 0;
         z-index: -100;
-        transition: .3s;
+        transition-duration: .3s;
+        transition-property: background-color;
     }
     .navBg.open {
         background-color: rgba(0, 0, 0, .5);
