@@ -9,12 +9,36 @@ const products = ref<ProductType[]>([{
     name: 'Bolo',
     price: 100,
 }]);
+const responsiveOptions = ref([
+    {
+        breakpoint: '1439px',
+        numVisible: 3,
+        numScroll: 3,
+    },
+    {
+        breakpoint: '1023px',
+        numVisible: 2,
+        numScroll: 2,
+    },
+    {
+        breakpoint: '767px',
+        numVisible: 1,
+        numScroll: 1,
+    },
+]);
 
 fetchProducts({}).then(res => (products.value = res));
 </script>
 
 <template>
-    <Carousel :value="products" :numVisible="1">
+    <Carousel
+        :value="products"
+        :numVisible="4"
+        :numScroll="4"
+        :responsive-options="responsiveOptions"
+        :autoplayInterval="3000"
+        circular
+    >
         <template #item="slotProps">
             <RouterLink :to="{name: 'produto', params: {id: slotProps.index}}">
                 <img :src="slotProps.data.image"/>
@@ -64,23 +88,39 @@ svg {
 </style>
 
 <style>
-.p-carousel-prev-button {
-    margin-right: -2rem;
-    color: black !important;
+button.p-carousel-prev-button {
+    margin-right: -3rem;
     z-index: 100;
+    height: 400px !important;
+    background-image: linear-gradient(270deg, rgba(0,0,0,0), rgba(0,0,0,0.9)) !important;
+    border-radius: 0 !important;
+    top: -3px;
+    position: relative;
+    color: var(--vt-c-white) !important;
     svg {
-        width: 2rem;
-        height: 2rem;
+        width: 3rem;
     }
 }
-.p-carousel-next-button {
-    margin-left: -2rem;
-    color: black !important;
+button.p-carousel-prev-button:hover {
+    opacity: 1;
+    border-radius: 0;
+}
+button.p-carousel-next-button {
+    margin-left: -3rem;
     z-index: 100;
+    height: 400px !important;
+    background-image: linear-gradient(90deg, rgba(0,0,0,0), rgba(0,0,0,0.9)) !important;
+    border-radius: 0 !important;
+    top: -3px;
+    position: relative;
+    color: var(--vt-c-white) !important;
     svg {
-        width: 2rem;
-        height: 2rem;
+        width: 3rem;
     }
+}
+button.p-carousel-next-button:hover {
+    opacity: 1;
+    border-radius: 0;
 }
 .p-carousel img {
     width: 100%;
