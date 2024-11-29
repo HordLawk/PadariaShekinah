@@ -47,8 +47,8 @@ const returnToCart = () => cartConfirmation.value = true;
 <template>
     <form class="container" @submit.prevent.stop="sendOrder">
         <div class="head">
-            <h1>Informações</h1>
             <IconBack class="clickableIcon" tabindex="0" @click="returnToCart" @keyup.space.enter="returnToCart" />
+            <h1>Informações</h1>
         </div>
         <p>Campos com * são obrigatórios</p>
         <div>
@@ -116,7 +116,7 @@ const returnToCart = () => cartConfirmation.value = true;
     }
     .head {
         flex-direction: row;
-        justify-content: space-between;
+        gap: .5rem;
         line-height: 2.5rem;
         .clickableIcon {
             width: 2.5rem;

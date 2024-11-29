@@ -55,14 +55,33 @@ const changeAmount = ({id, amount}: CartProductType) => {
 </script>
 
 <template>
-    <CartTab
-        v-if="cartConfirmation"
-        v-model="cartConfirmation"
-        :price="totalPriceString"
-        :products="products"
-        :cart="cartProducts"
-        @removeItem="removeItem"
-        @changeAmount="changeAmount"
-    />
-    <OrderTab v-else v-model="cartConfirmation" :price="totalPriceString" :products="products" :cart="cartProducts" />
+    <Transition name="slide" mode="out-in">
+        <CartTab
+            v-if="cartConfirmation"
+            v-model="cartConfirmation"
+            :price="totalPriceString"
+            :products="products"
+            :cart="cartProducts"
+            @removeItem="removeItem"
+            @changeAmount="changeAmount"
+        />
+        <OrderTab v-else v-model="cartConfirmation" :price="totalPriceString" :products="products" :cart="cartProducts" />
+    </Transition>
 </template>
+
+<style>
+.slide-enter-active,
+.slide-leave-active {
+  transition-duration: .15s;
+}
+
+.slide-enter-from {
+  opacity: 0;
+  transform: translateX(400px);
+}
+
+.slide-leave-to {
+  opacity: 0;
+  transform: translateX(-400px);
+}
+</style>
