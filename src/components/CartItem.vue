@@ -4,7 +4,8 @@ import { toPriceString } from '../assets/utils.js';
 import IconRemove from './icons/IconRemove.vue';
 import IconAdd from './icons/IconAdd.vue';
 
-const {name, image, price, amount} = defineProps<{
+const {_id, name, image, price, amount} = defineProps<{
+    _id?: number,
     name?: string,
     image?: string,
     price?: number,
@@ -28,10 +29,10 @@ const incrementAmount = (inc: number) => {
 
 <template>
     <div class="item">
-        <img :src="image ?? 'https://placehold.co/500x600'"/>
+        <RouterLink :to="`/produto/${_id ?? 0}`"><img :src="image ?? 'https://placehold.co/500x600'"/></RouterLink>
         <div>
             <div>
-                <h2> {{ name ?? '' }} </h2>
+                <RouterLink :to="`/produto/${_id ?? 0}`"> {{ name ?? '' }} </RouterLink>
                 <IconDelete class="clickableIcon" tabindex="0" @click="remove" @keyup.enter.space="remove"/>
             </div>
             <div>
@@ -65,7 +66,7 @@ const incrementAmount = (inc: number) => {
     background-color: var(--color-background-mute);
     border-radius: .5rem;
     gap: 1rem;
-    > img {
+    > a > img {
         height: 100%;
         aspect-ratio: 1/1;
         border-radius: .5rem;
@@ -76,10 +77,23 @@ const incrementAmount = (inc: number) => {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        overflow: hidden;
         > div {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: .5rem;
+            > a {
+                font-size: 1.5rem;
+                color: var(--color-text);
+                flex-shrink: 1;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+            > a:hover {
+                color: var(--vt-c-yellow);
+            }
         }
         .amount {
             display: flex;
