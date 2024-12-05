@@ -22,7 +22,7 @@ const addToCart = () => {
 
 <template>
     <div class="container">
-        <img :src="product?.image ?? 'https://placehold.co/500x600'"/>
+        <img :src="product?.image ?? 'https://placehold.co/500x600'" :alt="product?.name ?? ''"/>
         <div>
             <h1>{{ product?.name ?? '' }}</h1>
             <h2>{{ toPriceString(product?.price ?? 0) }}</h2>

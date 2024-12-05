@@ -37,7 +37,7 @@ const showedteam = ref(team);
         </div>
         <section>
             <div v-for="(team, id) in showedteam" :key="id" class="teamCard">
-                <img :src="team.image"/>
+                <img :src="team.image" :alt="team.name"/>
                 <div>
                     <h2>{{ team.name }}</h2>
                 </div>

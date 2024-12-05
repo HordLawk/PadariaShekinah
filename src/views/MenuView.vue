@@ -54,7 +54,7 @@ const toggleSearch = (open: boolean) => {
                 :to="{name: 'produto', params: {id: _id}}"
             >
                 <div class="productCard">
-                    <img :src="image"/>
+                    <img :src="image" :alt="name"/>
                     <div>
                         <h2>{{name}}</h2>
                         <p>{{toPriceString(price)}}</p>

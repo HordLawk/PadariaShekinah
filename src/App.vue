@@ -86,8 +86,8 @@ const incrementFontSize = (inc: number) => {
         <div>
             <div class="footerTitle">MÍDIAS SOCIAIS</div>
             <div class="socialIcons">
-                <a href="#" target="_blank"><img src="@/assets/whatsapp.png"/></a>
-                <a href="#" target="_blank"><img src="@/assets/instagram.png"/></a>
+                <a href="#" target="_blank"><img src="@/assets/whatsapp.png" alt="WhatsApp"/></a>
+                <a href="#" target="_blank"><img src="@/assets/instagram.png" alt="Instagram"/></a>
             </div>
         </div>
     </footer>

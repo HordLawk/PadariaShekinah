@@ -29,7 +29,9 @@ const incrementAmount = (inc: number) => {
 
 <template>
     <div class="item">
-        <RouterLink :to="`/produto/${_id ?? 0}`"><img :src="image ?? 'https://placehold.co/500x600'"/></RouterLink>
+        <RouterLink :to="`/produto/${_id ?? 0}`">
+            <img :src="image ?? 'https://placehold.co/500x600'" :alt="name ?? ''"/>
+        </RouterLink>
         <div>
             <div>
                 <RouterLink :to="`/produto/${_id ?? 0}`"> {{ name ?? '' }} </RouterLink>
@@ -83,6 +85,9 @@ const incrementAmount = (inc: number) => {
             justify-content: space-between;
             align-items: center;
             gap: .5rem;
+            .clickableIcon {
+                min-width: 24px;
+            }
             > a {
                 font-size: 1.5rem;
                 color: var(--color-text);
@@ -94,11 +99,11 @@ const incrementAmount = (inc: number) => {
             > a:hover {
                 color: var(--vt-c-yellow);
             }
-        }
-        .amount {
-            display: flex;
-            align-items: center;
-            gap: .5rem;
+            .amount {
+                display: flex;
+                align-items: center;
+                gap: .5rem;
+            }
         }
     }
     @media (min-width: 769px) {

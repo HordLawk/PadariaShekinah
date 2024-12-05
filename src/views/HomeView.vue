@@ -41,7 +41,7 @@ fetchProducts({}).then(res => (products.value = res));
     >
         <template #item="slotProps">
             <RouterLink :to="{name: 'produto', params: {id: slotProps.index}}">
-                <img :src="slotProps.data.image"/>
+                <img :src="slotProps.data.image" :alt="slotProps.data.name"/>
             </RouterLink>
         </template>
     </Carousel>
