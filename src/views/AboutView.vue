@@ -27,7 +27,7 @@ const showedteam = ref(team);
 </script>
 
 <template>
-    <section class="sobre-nos-texto-primeira-parte">
+    <section role="region" class="sobre-nos-texto-primeira-parte">
         <h1>Sobre Nós</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     </section>
@@ -35,7 +35,7 @@ const showedteam = ref(team);
         <div class="head">
             <h1>Equipe</h1>
         </div>
-        <section>
+        <section role="region">
             <div v-for="(team, id) in showedteam" :key="id" class="teamCard">
                 <img :src="team.image" :alt="team.name"/>
                 <div>

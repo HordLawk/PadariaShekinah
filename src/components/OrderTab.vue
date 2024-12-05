@@ -45,7 +45,7 @@ const returnToCart = () => cartConfirmation.value = true;
 </script>
 
 <template>
-    <form class="container" @submit.prevent.stop="sendOrder">
+    <form role="form" class="container" @submit.prevent.stop="sendOrder">
         <div class="head">
             <IconBack class="clickableIcon" tabindex="0" @click="returnToCart" @keyup.space.enter="returnToCart" />
             <h1>Informações</h1>

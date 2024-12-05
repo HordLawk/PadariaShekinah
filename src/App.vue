@@ -34,7 +34,7 @@ const incrementFontSize = (inc: number) => {
 </script> 
 
 <template>
-    <header>
+    <header role="banner">
         <RouterLink to="/"><h1>PADARIA<br/>SHEKINAH</h1></RouterLink>
         <div class="icons">
             <div class="accessibility">
@@ -58,7 +58,7 @@ const incrementFontSize = (inc: number) => {
             <IconMenu class="menuIcon" @click="isMenuOpen = true"/>
         </div>
         <div class="navBg" :class="{open: isMenuOpen}" @click="isMenuOpen = false"></div>
-        <nav :class="{open: isMenuOpen}">
+        <nav role="navigation" :class="{open: isMenuOpen}">
             <ul>
                 <li><RouterLink to="/"><IconHome/>Home</RouterLink></li>
                 <li><RouterLink to="/cardapio"><IconRestaurant/>Cardápio</RouterLink></li>
@@ -70,11 +70,11 @@ const incrementFontSize = (inc: number) => {
         </nav>
     </header>
 
-    <main>
+    <main role="main">
         <RouterView />
     </main>
 
-    <footer>
+    <footer role="contentinfo">
         <div>
             <div class="footerTitle">CONTATO</div>
             <div>(99) 90000-0000</div>

@@ -32,19 +32,19 @@ const hideSuccessMessage = () => {
 </script>
 
 <template>
-  <section>
+  <section role="region">
     <h2>SOBRE NÓS</h2>
     <p>Campos com * são obrigatórios</p>
   </section>
-  <section>
+  <section role="region">
     <h1>Mensagem *</h1>
     <textarea v-model="mensagem"></textarea>
   </section>
-  <section>
+  <section role="region">
     <h1>Nome</h1>
     <textarea class="contato-textarea-curto" v-model="nome"></textarea>
   </section>
-  <section>
+  <section role="region">
     <h1>Telefone *</h1>
     <textarea class="contato-textarea-curto" v-model="telefone">(99) 90000-0000</textarea>
   </section>

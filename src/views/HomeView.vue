@@ -45,12 +45,12 @@ fetchProducts({}).then(res => (products.value = res));
             </RouterLink>
         </template>
     </Carousel>
-    <section>
+    <section role="region">
         <p>Conheça nossos deliciosos produtos!</p>
         <RouterLink to="/cardapio"><button tabindex="-1">Visite o cardápio</button></RouterLink>
     </section>
     <svg height="2"><path d="M0 1H1980" stroke-dasharray="20 20"/></svg>
-    <section>
+    <section role="region">
         <h2>SOBRE NÓS</h2>
         <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et

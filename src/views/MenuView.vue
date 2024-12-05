@@ -47,7 +47,7 @@ const toggleSearch = (open: boolean) => {
                 @keyup.space.enter="toggleSearch(false)"
             />
         </div>
-        <section>
+        <section role="region">
             <RouterLink
                 v-for="{_id, name, image, price} in products"
                 :key="_id"
