@@ -63,6 +63,7 @@ const returnToCart = () => cartConfirmation.value = true;
                 id="phone"
                 placeholder="(99) 90000-0000"
                 pattern="^(\([1-9]{2}\)|[1-9]{2})\s*9?\d{4}-?\d{4}$"
+                title="Um número de telefone válido começando pelo DDD"
                 required
                 v-model="phone"
             />
