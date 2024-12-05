@@ -11,7 +11,7 @@
 
   --vt-c-indigo: #2c3e50;
 
-  --vt-c-red: #EA1D2C;
+  --vt-c-red: #EB1523;
 
   --vt-c-yellow: #F2B705;
 
@@ -39,6 +39,7 @@
 
   --color-heading: var(--vt-c-text-light-1);
   --color-text: var(--vt-c-text-light-1);
+  --color-text-error: var(--vt-c-red);
 
   --section-gap: 160px;
 }
@@ -56,6 +57,7 @@
 
     --color-heading: var(--vt-c-text-dark-1);
     --color-text: var(--vt-c-text-dark-1);
+    --color-text-error: var(--vt-c-yellow); 
   }
 }
 
@@ -71,6 +73,7 @@
 
   --color-heading: var(--vt-c-text-dark-1);
   --color-text: var(--vt-c-text-dark-1);
+  --color-text-error: var(--vt-c-yellow);
 }
 
 *,

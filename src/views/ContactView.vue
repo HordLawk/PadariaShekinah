@@ -73,7 +73,7 @@ section {
 section > p {
   font-size: 1.3rem;
   text-align: justify;
-  color: var(--vt-c-red);
+  color: var(--color-text-error);
 }
 
 textarea {

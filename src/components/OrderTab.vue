@@ -144,7 +144,7 @@ const returnToCart = () => cartConfirmation.value = true;
         }
     }
     > p {
-        color: var(--vt-c-red);
+        color: var(--color-text-error);
     }
     > button {
         background-color: #25d366;
