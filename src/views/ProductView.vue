@@ -26,7 +26,7 @@ const addToCart = () => {
         <div>
             <h1>{{ product?.name ?? '' }}</h1>
             <h2>{{ toPriceString(product?.price ?? 0) }}</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et</p>
+            <p>{{ product?.description ?? '' }}</p>
             <button v-if="isInCart" class="full" disabled>Produto no carrinho</button>
             <button v-else class="full" @click="addToCart">Adicionar ao carrinho</button>
         </div>
