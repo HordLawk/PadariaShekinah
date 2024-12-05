@@ -203,7 +203,7 @@ header {
                 opacity: .7;
             }
             > li .router-link-exact-active {
-                font-weight: bold;
+                font-weight: 800;
             }
         }
     }
@@ -223,9 +223,6 @@ header {
             background-color: var(--color-primary);
             padding: 32px;
             z-index: 101;
-            > ul > li .router-link-exact-active {
-                padding-inline-start: 16px;
-            }
         }
         nav.open, > nav:focus-within {
             transform: translate(-80vw);
