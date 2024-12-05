@@ -53,11 +53,12 @@ const returnToCart = () => cartConfirmation.value = true;
         <p>Campos com * são obrigatórios</p>
         <div>
             <label for="name">Nome *</label>
-            <input type="text" name="name" id="name" placeholder="Pedro" required v-model.trim="name" />
+            <input aria-label="Nome" type="text" name="name" id="name" placeholder="Pedro" required v-model.trim="name" />
         </div>
         <div>
             <label for="phone">Telefone *</label>
             <input
+                aria-label="Telefone"
                 type="tel"
                 name="phone"
                 id="phone"
@@ -70,26 +71,27 @@ const returnToCart = () => cartConfirmation.value = true;
         </div>
         <div class="delivery">
             <div>
-                <input type="radio" name="delivery" id="delivery" :value="true" v-model="isDelivery" checked />
+                <input aria-label="Entrega" type="radio" name="delivery" id="delivery" :value="true" v-model="isDelivery" checked />
                 <label for="delivery">Entrega</label>
             </div>
             <div>
-                <input type="radio" name="delivery" id="takeout" :value="false" v-model="isDelivery" />
+                <input aria-label="Retirar"type="radio" name="delivery" id="takeout" :value="false" v-model="isDelivery" />
                 <label for="takeout">Retirar</label>
             </div>
         </div>
         <template v-if="isDelivery">
             <div>
                 <label for="street">Rua *</label>
-                <input type="text" name="street" id="street" placeholder="Av. Paulista" required v-model.trim="street"/>
+                <input aria-label="Rua" type="text" name="street" id="street" placeholder="Av. Paulista" required v-model.trim="street"/>
             </div>
             <div>
                 <label for="number">Número *</label>
-                <input type="number" name="number" id="number" placeholder="82" required v-model="number" />
+                <input aria-label="Número" type="number" name="number" id="number" placeholder="82" required v-model="number" />
             </div>
             <div>
                 <label for="complement">Complemento</label>
                 <input
+                    aria-label="Complemento"
                     type="text"
                     name="complement"
                     id="complement"

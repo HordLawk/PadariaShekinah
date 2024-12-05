@@ -32,6 +32,7 @@ const toggleSearch = (open: boolean) => {
                 @keyup.space.enter="toggleSearch(true)"
             />
             <input
+                aria-label="Pesquisar"
                 type="text"
                 :class="{open: isSearchOpen}"
                 v-model="searchQuery"
