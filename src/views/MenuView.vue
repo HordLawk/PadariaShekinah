@@ -27,9 +27,7 @@ const toggleSearch = (open: boolean) => {
             <IconSearch
                 v-if="!isSearchOpen"
                 class="clickableIcon"
-                tabindex="0"
                 @click="toggleSearch(true)"
-                @keyup.space.enter="toggleSearch(true)"
             />
             <input
                 aria-label="Pesquisar"
@@ -43,9 +41,7 @@ const toggleSearch = (open: boolean) => {
             <IconClose
                 v-if="isSearchOpen"
                 class="clickableIcon"
-                tabindex="0"
                 @click="toggleSearch(false)"
-                @keyup.space.enter="toggleSearch(false)"
             />
         </div>
         <section role="region">
@@ -127,7 +123,13 @@ const toggleSearch = (open: boolean) => {
             justify-content: space-between;
             flex-grow: 1;
             margin: .5rem .8rem .5rem .8rem;
-            color: var(--color-text)
+            color: var(--color-text);
+            > h2 {
+                flex-shrink: 1;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+            }
         }
     }
     > section .productCard:hover {
