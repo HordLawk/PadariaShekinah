@@ -28,7 +28,7 @@ const toggleTheme = () => {
 }
 const incrementFontSize = (inc: number) => {
     const fontSize = parseFloat(window.getComputedStyle(document.documentElement, null).getPropertyValue('font-size'));
-    if((fontSize + inc) > 20) return;
+    if(((fontSize + inc) > 20) || ((fontSize + inc) <= 0)) return;
     document.documentElement.style.fontSize = `${fontSize + inc}px`;
 }
 </script> 
